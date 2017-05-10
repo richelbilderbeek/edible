@@ -1,0 +1,6 @@
+*.o
+*.a
+src/Meschach/config.status
+src/Meschach/macheps
+src/Meschach/makefile
+src/Meschach/maxint
