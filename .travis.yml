@@ -1,0 +1,16 @@
+language: cpp
+compiler: gcc
+
+install:
+  # Build Meschach
+  - cd ..
+  - git clone https://https://github.com/yageek/Meschach.git
+  - cd Meschach
+  - cmake . -DCOMPLEX_OPTION=YES -DSPARSE_OPTION=YES
+  - cd ..
+  - cd edible
+
+script: 
+  - qmake
+  - make
+  - ./edible

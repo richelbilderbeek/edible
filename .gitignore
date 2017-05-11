@@ -4,3 +4,4 @@ src/Meschach/config.status
 src/Meschach/macheps
 src/Meschach/makefile
 src/Meschach/maxint
+*.pro.user
