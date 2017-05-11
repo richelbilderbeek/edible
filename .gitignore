@@ -5,3 +5,4 @@ src/Meschach/macheps
 src/Meschach/makefile
 src/Meschach/maxint
 *.pro.user
+Makefile

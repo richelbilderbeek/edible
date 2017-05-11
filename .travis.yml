@@ -2,6 +2,9 @@ language: cpp
 compiler: gcc
 
 install:
+  # Qt5
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # Build Meschach
   - cd ..
   - git clone https://github.com/yageek/Meschach.git
