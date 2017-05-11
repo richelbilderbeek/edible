@@ -18,11 +18,12 @@ script:
   - qmake
   - make
   - ./edible test/primate.tree out.txt &
+  - 1
   # Send keystroke '1'
-  - sleep 1
-  - WID=`xdotool search "edible" | head -1`
-  - xdotool windowactivate $WID
-  - xdotool key 1
-  - sleep 1
+  #- sleep 1
+  #- WID=`xdotool search "edible" | head -1`
+  #- xdotool windowactivate $WID
+  #- xdotool key 1
+  - sleep 10
   # Read result
   - cat out.txt
