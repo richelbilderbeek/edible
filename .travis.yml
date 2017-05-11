@@ -4,7 +4,7 @@ compiler: gcc
 install:
   # Build Meschach
   - cd ..
-  - git clone https://https://github.com/yageek/Meschach.git
+  - git clone https://github.com/yageek/Meschach.git
   - cd Meschach
   - cmake . -DCOMPLEX_OPTION=YES -DSPARSE_OPTION=YES
   - cd ..
