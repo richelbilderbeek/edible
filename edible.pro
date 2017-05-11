@@ -116,5 +116,5 @@ SOURCES += src/edible.c \
            src/random.c \
            src/read.c \
            src/tree.c \
-           src/utility.c \
-           src/pcalc/pcalc.c
+           #src/pcalc/pcalc.c \
+           src/utility.c
