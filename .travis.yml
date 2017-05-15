@@ -8,7 +8,8 @@ install:
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # Build Meschach
   - cd ..
-  - git clone https://github.com/yageek/Meschach.git
+  - git clone https://github.com/richelbilderbeek/Meschach.git
+  #- git clone https://github.com/yageek/Meschach.git
   - cd Meschach
   - cmake . -DCOMPLEX_OPTION=YES -DSPARSE_OPTION=YES
   - cd ..
