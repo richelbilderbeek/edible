@@ -19,101 +19,28 @@ QMAKE_CXXFLAGS += -Wno-implicit-int
 QMAKE_CXXFLAGS += -Wno-unused-variable
 QMAKE_CXXFLAGS += -Wno-unused-but-set-variable
 
-INCLUDEPATH += . src
 
 INCLUDEPATH += ..
-INCLUDEPATH += ../Meschach
-HEADERS += ../Meschach/*.h
+INCLUDEPATH += . $$PWD/src
 
-SOURCES += \
-    ../Meschach/arnoldi.c \
-    ../Meschach/bdfactor.c \
-    ../Meschach/bkpfacto.c \
-    ../Meschach/chfactor.c \
-    ../Meschach/conjgrad.c \
-    ../Meschach/copy.c \
-    #../Meschach/dmacheps.c \
-    ../Meschach/err.c \
-    ../Meschach/extras.c \
-    ../Meschach/fft.c \
-    #../Meschach/fmacheps.c \
-    ../Meschach/givens.c \
-    ../Meschach/hessen.c \
-    ../Meschach/hsehldr.c \
-    ../Meschach/init.c \
-    #../Meschach/iotort.c \
-    ../Meschach/iter0.c \
-    ../Meschach/iternsym.c \
-    ../Meschach/itersym.c \
-    #../Meschach/itertort.c \
-    ../Meschach/ivecop.c \
-    ../Meschach/lanczos.c \
-    ../Meschach/lufactor.c \
-    ../Meschach/machine.c \
-    ../Meschach/matlab.c \
-    ../Meschach/matop.c \
-    ../Meschach/matrixio.c \
-    #../Meschach/maxint.c \
-    ../Meschach/meminfo.c \
-    ../Meschach/memory.c \
-    ../Meschach/memstat.c \
-    #../Meschach/memtort.c \
-    ../Meschach/mfunc.c \
-    #../Meschach/mfuntort.c \
-    ../Meschach/norm.c \
-    ../Meschach/otherio.c \
-    ../Meschach/pxop.c \
-    ../Meschach/qrfactor.c \
-    ../Meschach/schur.c \
-    ../Meschach/solve.c \
-    ../Meschach/sparse.c \
-    ../Meschach/sparseio.c \
-    ../Meschach/spbkp.c \
-    ../Meschach/spchfctr.c \
-    ../Meschach/splufctr.c \
-    ../Meschach/sprow.c \
-    ../Meschach/spswap.c \
-    #../Meschach/sptort.c \
-    ../Meschach/submat.c \
-    ../Meschach/svd.c \
-    ../Meschach/symmeig.c \
-    #../Meschach/torture.c \
-    #../Meschach/tutadv.c \
-    #../Meschach/tutorial.c \
-    ../Meschach/update.c \
-    ../Meschach/vecop.c \
-    ../Meschach/version.c \
-    ../Meschach/zcopy.c \
-    ../Meschach/zfunc.c \
-    ../Meschach/zgivens.c \
-    ../Meschach/zhessen.c \
-    ../Meschach/zhsehldr.c \
-    ../Meschach/zlufctr.c \
-    ../Meschach/zmachine.c \
-    ../Meschach/zmatio.c \
-    ../Meschach/zmatlab.c \
-    ../Meschach/zmatop.c \
-    ../Meschach/zmemory.c \
-    ../Meschach/znorm.c \
-    ../Meschach/zqrfctr.c \
-    ../Meschach/zschur.c \
-    ../Meschach/zsolve.c \
-    ../Meschach/zvecop.c
+include(../Meschach/Meschach.pri)
 
 # Input
-HEADERS += src/edible.h \
-           src/gtr.h \
-           src/new_models.h \
-           src/variables.h
+HEADERS += \
+    $$PWD/src/edible.h \
+    $$PWD/src/gtr.h \
+    $$PWD/src/new_models.h \
+    $$PWD/src/variables.h
 
-SOURCES += src/edible.c \
-           src/gtr.c \
-           src/llh.c \
-           src/matrix.c \
-           src/new_models.c \
-           src/options.c \
-           src/partial.c \
-           src/random.c \
-           src/read.c \
-           src/tree.c \
-           src/utility.c
+SOURCES += \
+    $$PWD/src/edible.c \
+    $$PWD/src/gtr.c \
+    $$PWD/src/llh.c \
+    $$PWD/src/matrix.c \
+    $$PWD/src/new_models.c \
+    $$PWD/src/options.c \
+    $$PWD/src/partial.c \
+    $$PWD/src/random.c \
+    $$PWD/src/read.c \
+    $$PWD/src/tree.c \
+    $$PWD/src/utility.c
