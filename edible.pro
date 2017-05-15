@@ -21,6 +21,7 @@ QMAKE_CXXFLAGS += -Wno-unused-but-set-variable
 
 INCLUDEPATH += . src
 
+INCLUDEPATH += ..
 INCLUDEPATH += ../Meschach
 HEADERS += ../Meschach/*.h
 
@@ -97,7 +98,6 @@ SOURCES += \
     ../Meschach/zqrfctr.c \
     ../Meschach/zschur.c \
     ../Meschach/zsolve.c \
-    #../Meschach/ztorture.c \
     ../Meschach/zvecop.c
 
 # Input
@@ -116,5 +116,4 @@ SOURCES += src/edible.c \
            src/random.c \
            src/read.c \
            src/tree.c \
-           #src/pcalc/pcalc.c \
            src/utility.c
