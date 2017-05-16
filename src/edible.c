@@ -3,10 +3,6 @@
  *  WARNING: If MAX_ARITY is exceeded - the program may still
  * run, giving an erroneous answer*/
 
-
-// CLI arguments:
-// ~/GitHubs/edible/test/primate.tree out.txt
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
