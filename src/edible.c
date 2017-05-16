@@ -18,9 +18,6 @@
 #include <time.h>
 #include <float.h>
 
-#define FOOBAR main /*  Calling an important function FOOBAR
-                     * is apparently a shooting offence*/
-
 int nodecount=0;
 int leaves=0;
 int branches=0;
@@ -68,7 +65,7 @@ double * rate_prob=NULL, *rate_cat=NULL;
 double *** ProbMatArray=NULL, *** DProbMatArray=NULL, *** DDProbMatArray=NULL;
 double * gtr=NULL;
 
-int FOOBAR(argc, argv)
+int main(argc, argv)
 int argc;
 char *argv[];
 {
