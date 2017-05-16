@@ -18,4 +18,4 @@ install:
 script: 
   - qmake
   - make
-  - ./edible || true
+  - ./edible -o test/primate.tree out.txt
