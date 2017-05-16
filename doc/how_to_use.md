@@ -59,11 +59,9 @@ Usage:
    output_file
 ```
 
- * `edible` is the name of the executable to be run. Playing round with 
-   different values of this parameter wastes time and has far too many
-   interesting effects to be documented here.
+ * `edible` is the name of the executable to be run
  * `tree_file` is the name of the file which should contain a tree in
-   bracket-colon format (see below) If not, bad things happen.
+   bracket-colon format (see below). If not, bad things happen.
  * `output_file` is the name of the output file. 
    EDIBLE creates a file of the given name (overwriting if necessary) 
    and keeps going until it finishes or the hard disk dies.
@@ -83,17 +81,15 @@ Usage:
    of nucleotides. If information about only one branch (or node in a 
    clock-like tree) has been specified then the partial derivatives and
    information WRT that branch will also be dumped.
- * `t` dumps each tree used to a file (really only for debugging purposes;
-   but may be useful to clarify what the program is doing; not that it isn't
-   so obvious even a professor could understand it ;-)
+ * `t` dumps each tree used to a file. Used for debugging purposes, but 
+   may be also useful to clarify what the program is doing
  * `b` turns on sampling behaviour for large (and small) trees. The option 
    name is really a misnomer now, but is does what you'd expect - bases 
    estimates for the expected information on "boot_strap_size" samples. This 
    method shouldn't run into problems with large trees (unlike the exact
    calculation which requires integers of length 4^#leaves and will overflow
    on computers with finite registers for large trees.)
-   Only silly people with time to waste on extra key strokes use the `b` and
-  `s` options together.
+   Do not use the `b` and `s` options together.
  * `d` return the determinate of the information matrix specified by all
    the parameters chosen. If no parameters are specified, the determinate of 
    the entire matrix is returned. If only one parameter is specified, then
