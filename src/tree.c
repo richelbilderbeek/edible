@@ -24,7 +24,7 @@ struct treenode *treecopy(struct treenode *node2_p,int flag){
 
   /* Cycle through all the branches leading to children,
    * recursing down if the branch actually exists*/
-  for(n=flag;n<DOODAH && node2_p->node[n]!=NULL;n++){
+  for(n=flag;n<MAX_ARITY && node2_p->node[n]!=NULL;n++){
     if((node2_p->node[n])!=NULL){
       CHILD(node)=treecopy(node2_p->node[n],1);
       PARENT(node)=node_p;
@@ -34,7 +34,7 @@ struct treenode *treecopy(struct treenode *node2_p,int flag){
   /* Blank out all remaining branches. ie: the ones which 
    * don't lead anywhere*/
   a=n;
-  for(n=a;n<DOODAH;n++){
+  for(n=a;n<MAX_ARITY;n++){
       CHILD(node)=NULL; 
       CHILD(length)=-1; 
   }
@@ -61,7 +61,7 @@ void filltree(struct treenode *from, struct treenode *node_p,int flag){
 
   /*  If the node has children, then recurse down them
    * filling as we go*/
-  for(n=flag;n<DOODAH && CHILD(node)!=NULL;n++){
+  for(n=flag;n<MAX_ARITY && CHILD(node)!=NULL;n++){
     CHILD(length)=from->length[n];
     filltree(from->node[n],CHILD(node),1);
     PARENT(length)=CHILD(length);
@@ -82,7 +82,7 @@ void doleaf(struct treenode *node_p,int flag){
   if(CHILD(node)==NULL)
     leaf[leaves++]=node_p;
   else
-    for(n=flag;n<DOODAH && CHILD(node)!=NULL;n++)
+    for(n=flag;n<MAX_ARITY && CHILD(node)!=NULL;n++)
       doleaf(CHILD(node),1);
 }
  
@@ -92,7 +92,7 @@ void doleaf(struct treenode *node_p,int flag){
 int findnode(struct treenode *node1_p,struct treenode *node2_p){
   int n;
 
-  for(n=0;n<DOODAH && node1_p->node[n]!=node2_p;n++){}
+  for(n=0;n<MAX_ARITY && node1_p->node[n]!=node2_p;n++){}
   if(node1_p==node2_p)
     n=0;
   return n;
@@ -125,7 +125,7 @@ void print_tree(struct treenode *node_p, FILE *fp, int flag){
   int a,n;
   
   n=flag;
-  while(n<DOODAH && CHILD(node)!=NULL){n++;}
+  while(n<MAX_ARITY && CHILD(node)!=NULL){n++;}
   a=n;
 
   if(flag==0)

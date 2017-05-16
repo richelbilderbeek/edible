@@ -220,7 +220,7 @@ double llhcalc(struct treenode *node_p){
   for ( r=0 ; r<nrates ; r++){
     /*  Function to recurse down the tree*/
     n=0;
-    while(n<DOODAH && CHILD(node)!=NULL){
+    while(n<MAX_ARITY && CHILD(node)!=NULL){
       llhcalc_branch(CHILD(node),r);
       n++;
     }
@@ -273,7 +273,7 @@ void llhcalc_branch(struct treenode *node_p, int r){
 
 /*  Now - can assume that we are on an internal node
  * Recurse down all the (non-parent) branches        */
-  while(n<DOODAH && CHILD(node)!=NULL){
+  while(n<MAX_ARITY && CHILD(node)!=NULL){
     llhcalc_branch(CHILD(node),r);
     n++;
   }
@@ -281,7 +281,7 @@ void llhcalc_branch(struct treenode *node_p, int r){
  * have been calculated - and thus can calculate the
  * llh vector for the current node*/
   a=n;
-/*  'a' is now either DOODAH, or the first 'branch'
+/*  'a' is now either MAX_ARITY, or the first 'branch'
  * with nothing coming off it                        */
   if(kudge==1 && (branch[branch1]==node_p || branch[branch2]==node_p))
     llhvector(node_p,a,1,r);
@@ -293,7 +293,7 @@ void llhcalc_branch(struct treenode *node_p, int r){
  * vectors.
  *  Assumes internal node, with all the vectors
  * from child nodes already calculated.
- * a is the either DOODAH or the maximum number of
+ * a is the either MAX_ARITY or the maximum number of
  * non-null branches from the node.*/
 void llhvector(struct treenode *node_p,int a,int derivative, int r){
   int b,c,n;
@@ -512,7 +512,7 @@ double (*(*pcalc(struct treenode *node_p))[])[]{
   
   /*  Recurse down the tree, evolving nucleotides*/
   n=0;
-  while(n<DOODAH && CHILD(node)!=NULL){
+  while(n<MAX_ARITY && CHILD(node)!=NULL){
     pcalc_branch(CHILD(node));
     n++;
   }
@@ -536,7 +536,7 @@ void pcalc_branch(struct treenode *node_p){
   
   /*  Recurse down tree until leaf*/
   n=1;
-  while(n<DOODAH && CHILD(node)!=NULL){
+  while(n<MAX_ARITY && CHILD(node)!=NULL){
     pcalc_branch(CHILD(node));
     n++;
   }

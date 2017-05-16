@@ -36,7 +36,7 @@
 #define HAVE_RATES    8192
 #define GTR	     16384
 
-#define DOODAH 6 /* Maximum number of branches from any node
+#define MAX_ARITY 6 /* Maximum number of branches from any node
                   * eg: 3 for binary, 4 for trinary trees
                   * and so on till you run out of memory*/
 #define LEAFMAX 30
@@ -49,8 +49,8 @@
 
 struct treenode{
   char name[16];   /*Node names must be less than 16 char.*/
-  struct treenode *node[DOODAH];
-  double length[DOODAH];
+  struct treenode *node[MAX_ARITY];
+  double length[MAX_ARITY];
   double llh[4];
   int nucleotide;
   int bnum;

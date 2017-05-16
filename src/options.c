@@ -555,7 +555,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
 	movingnode->length[0]+=f_min;
 	(movingnode->node[0])->length[b]=movingnode->length[0];
       }
-      for(a=sp_case;a<DOODAH && movingnode->node[a]!=NULL;a++)
+      for(a=sp_case;a<MAX_ARITY && movingnode->node[a]!=NULL;a++)
 	if(a!=to && a!=from){
 	  (movingnode->node[a])->length[0]+=f_min;
 	  movingnode->length[a]=(movingnode->node[a])->length[0];
@@ -570,7 +570,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
 	movingnode->length[0]-=f_min;
 	(movingnode->node[0])->length[b]=movingnode->length[0];
       }
-      for(a=sp_case;a<DOODAH && movingnode->node[a]!=NULL;a++)
+      for(a=sp_case;a<MAX_ARITY && movingnode->node[a]!=NULL;a++)
 	if(a!=to && a!=from){
 	(movingnode->node[a])->length[0]-=f_min;
 	movingnode->length[a]=(movingnode->node[a])->length[0];
@@ -619,7 +619,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
           movingnode->length[0]+=(c!=0)*f;
           (movingnode->node[0])->length[b]=movingnode->length[0];
         }
-	for(a=sp_case;a<DOODAH && movingnode->node[a]!=NULL;a++)
+	for(a=sp_case;a<MAX_ARITY && movingnode->node[a]!=NULL;a++)
 	  if(a!=to && a!=from){
  	    (movingnode->node[a])->length[0]+=(c!=0)*f;
 	    movingnode->length[a]=(movingnode->node[a])->length[0];
@@ -634,7 +634,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
           movingnode->length[0]-=(c!=0)*f;
           (movingnode->node[0])->length[b]=movingnode->length[0];
         }
-	for(a=sp_case;a<DOODAH && movingnode->node[a]!=NULL;a++)
+	for(a=sp_case;a<MAX_ARITY && movingnode->node[a]!=NULL;a++)
 	  if(a!=to && a!=from){
 	    (movingnode->node[a])->length[0]-=(c!=0)*f;
 	    movingnode->length[a]=(movingnode->node[a])->length[0];

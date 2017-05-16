@@ -131,7 +131,7 @@ while(c!=')'){   /*  Until this branch ends {file format has ')'}*/
     sscanf(l,"%s",CHILD(node)->name);
     leaf[leaves]=CHILD(node);
     leaves++;
-    for(a=1;a<DOODAH;a++)
+    for(a=1;a<MAX_ARITY;a++)
       CHILD(node)->node[a]=NULL;
   }
 
@@ -173,7 +173,7 @@ while(c!=')'){   /*  Until this branch ends {file format has ')'}*/
 /*  Blank out the remaining pointers, so they aren't
  * checked at a later date*/
 a=n;
-for(n=a;n<DOODAH;n++){
+for(n=a;n<MAX_ARITY;n++){
   CHILD(length)=-1;
   CHILD(node)=NULL;
 }
@@ -186,7 +186,7 @@ void printnode(struct treenode *node_p,int flag,FILE *fp){
   int n;
 
   n=flag;
-  while(n<DOODAH && CHILD(node)!=NULL){
+  while(n<MAX_ARITY && CHILD(node)!=NULL){
     fprintf(fp,"# %s\tConnected to %15s by Length %e\n",node_p->name
                 ,CHILD(node)->name,CHILD(length));
 

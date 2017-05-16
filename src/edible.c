@@ -1,6 +1,6 @@
 /*  Program to calculate the likelihood of a given tree
  * evolving the nucleotides entered.
- *  WARNING: If DOODAH is exceeded - the program may still
+ *  WARNING: If MAX_ARITY is exceeded - the program may still
  * run, giving an erroneous answer*/
 
 

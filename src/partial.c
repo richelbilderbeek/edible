@@ -37,7 +37,7 @@ void partialcalc(struct treenode *node_p, double (*matrix)[], int twig){
   for ( r=0 ; r<nrates ; r++){
     /*  Function to recurse down the tree*/
     n=0;
-    while(n<DOODAH && CHILD(node)!=NULL){
+    while(n<MAX_ARITY && CHILD(node)!=NULL){
       partialcalc_branch(CHILD(node),twig, 1, r);
       n++;
     }
@@ -58,7 +58,7 @@ void partialcalc(struct treenode *node_p, double (*matrix)[], int twig){
   for ( r=0 ; r<nrates ; r++){
     /*  Function to recurse down the tree*/
     n=0;
-    while(n<DOODAH && CHILD(node)!=NULL){
+    while(n<MAX_ARITY && CHILD(node)!=NULL){
       partialcalc_branch(CHILD(node),twig, 2, r);
       n++;
     }
@@ -101,7 +101,7 @@ void partialcalc_branch(struct treenode *node_p, int twig, int deriv, int r){
 
 /*  Now - can assume that we are on an internal node
  * Recurse down all the (non-parent) branches        */
-  while(n<DOODAH && CHILD(node)!=NULL){
+  while(n<MAX_ARITY && CHILD(node)!=NULL){
     partialcalc_branch(CHILD(node),twig,deriv,r);
     n++;
   }
@@ -109,7 +109,7 @@ void partialcalc_branch(struct treenode *node_p, int twig, int deriv, int r){
  * have been calculated - and thus can calculate the
  * llh vector for the current node*/
   a=n;
-/*  'a' is now either DOODAH, or the first 'branch'
+/*  'a' is now either MAX_ARITY, or the first 'branch'
  * with nothing coming off it                        */
   if(branch[twig]==node_p){
     if ( deriv==1)
