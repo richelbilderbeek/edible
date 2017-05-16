@@ -10,6 +10,9 @@ Fork of EDIBLE from [https://www.ebi.ac.uk/research/goldman/software/EDIBLE](htt
 
 The original code is [in the `original` branch of this repository](https://github.com/richelbilderbeek/edible/tree/original).
 
+ * [How to use EDIBLE](how_to_use.md)
+ * [EDIBLE implementation explained](implementation.txt)
+
 ## Dependencies
 
  * [![Build Status](https://travis-ci.org/yageek/Meschach.svg?branch=master)](https://travis-ci.org/yageek/Meschach) [Meschach](https://github.com/yageek/Meschach.git)
