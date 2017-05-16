@@ -4,9 +4,13 @@
  * run, giving an erroneous answer*/
 
 
+// CLI arguments:
+// ~/GitHubs/edible/test/primate.tree out.txt
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <assert.h>
 #include <math.h>
 #include "edible.h"
 #include "gtr.h"
@@ -94,6 +98,7 @@ extern int interesting_branches[];
 
 extern double p[4];
 extern double kappa;
+int is_interactive = 1;
 
 char *matrix_file;
 char *prob_file;
@@ -282,6 +287,9 @@ while(a<argc && *argv[a]=='-'){
 	    }
 	    CreateGTR();
             break;
+  case 'o': a++;
+            is_interactive = 0;
+            break;
   }
 }
 
@@ -331,6 +339,7 @@ if(ISMODE(PERCENTILE) && ISMODE(BOOTSTRAP))
   printf("Don't want to sample twice - doing percentile calculations\n");
   
 out_file=argv[a+1];
+assert(a + 1 == argc - 1);
 readtree(argv[a],&snode);
 
 /*  If we want to cache results then get memory for the cache*/
@@ -361,11 +370,13 @@ if(ISMODE(PERCENTILE) && ISMODE(INDIVIDUAL) && individual>1 && NOTMODE(DETINDIV)
 }
 
 /* Offer choice of tree manipulations*/
-printf("\nOptions:  1. Calculate the expected information of the tree\n"
-       "          2. Scale tree by a given range of factors\n"
-       "          3. Scale a single branch by a given range of factors\n"
-       "          4. Slide a given branch along to others for given lengths\n"
-       "            Please choose:");
+if (is_interactive == 1) {
+  printf("\nOptions:  1. Calculate the expected information of the tree\n"
+         "          2. Scale tree by a given range of factors\n"
+         "          3. Scale a single branch by a given range of factors\n"
+         "          4. Slide a given branch along to others for given lengths\n"
+         "            Please choose:");
+}
 
   /*  Consider how much memory we need - if we are calculating all
    * the probabilities then we need lots. If we are using boot strap
@@ -519,16 +530,21 @@ printf("\nOptions:  1. Calculate the expected information of the tree\n"
   }
 
 /*  Choose option required.*/
-a=0;
-scanf("%d",&a);  
-while(a<1 || a>4){
-  printf("Invalid. Please choose again: ");
+if (is_interactive == 1) {
+  a=0;
   scanf("%d",&a);
+  while(a<1 || a>4){
+    printf("Invalid. Please choose again: ");
+    scanf("%d",&a);
+  }
+} else {
+  a=1;
 }
- 
+
+
 /*  Go to the relevant procedure, depending on option*/
 switch(a){
-  case 1: standard(&snode,file_p,e); 
+  case 1: standard(&snode,file_p,e);
           break;
   case 2: growtree(&snode,file_p,e);
           break;
@@ -547,6 +563,26 @@ if(ISMODE(PROBS))
   fclose(prob_file_p);
 if(ISMODE(VARIANCE))
   fclose(variance_file_p);
+
+if (is_interactive == 0) {
+  // show output file
+  FILE * const file_p = fopen(out_file,"r"); // read mode
+
+  if(file_p == NULL )
+  {
+    perror("Error while opening the file.\n");
+    exit(EXIT_FAILURE);
+  }
+
+  printf("The contents of %s file are :\n", out_file);
+  char ch = '\0';
+
+  while( ( ch = fgetc(file_p) ) != EOF ) {
+    printf("%c",ch);
+  }
+
+  fclose(file_p);
+}
 
 return 0;
 }

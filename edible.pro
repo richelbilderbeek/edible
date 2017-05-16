@@ -19,6 +19,8 @@ QMAKE_CXXFLAGS += -Wno-implicit-int
 QMAKE_CXXFLAGS += -Wno-unused-variable
 QMAKE_CXXFLAGS += -Wno-unused-but-set-variable
 
+#QMAKE_CFLAGS += -std=c11
+
 
 INCLUDEPATH += ..
 INCLUDEPATH += . $$PWD/src
