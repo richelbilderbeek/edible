@@ -65,9 +65,7 @@ double * rate_prob=NULL, *rate_cat=NULL;
 double *** ProbMatArray=NULL, *** DProbMatArray=NULL, *** DDProbMatArray=NULL;
 double * gtr=NULL;
 
-int main(argc, argv)
-int argc;
-char *argv[];
+int main(int argc, char *argv[])
 {
 struct treenode snode;
 unsigned int e;
@@ -366,15 +364,6 @@ if(ISMODE(PERCENTILE) && ISMODE(INDIVIDUAL) && individual>1 && NOTMODE(DETINDIV)
   exit(0);
 }
 
-/* Offer choice of tree manipulations*/
-if (is_interactive == 1) {
-  printf("\nOptions:  1. Calculate the expected information of the tree\n"
-         "          2. Scale tree by a given range of factors\n"
-         "          3. Scale a single branch by a given range of factors\n"
-         "          4. Slide a given branch along to others for given lengths\n"
-         "            Please choose:");
-}
-
   /*  Consider how much memory we need - if we are calculating all
    * the probabilities then we need lots. If we are using boot strap
    * techniques, we are only going to store the boot strap sample*/
@@ -526,8 +515,15 @@ if (is_interactive == 1) {
 	    break;
   }
 
-/*  Choose option required.*/
 if (is_interactive == 1) {
+  /* Offer choice of tree manipulations*/
+  printf("\nOptions:  1. Calculate the expected information of the tree\n"
+         "          2. Scale tree by a given range of factors\n"
+         "          3. Scale a single branch by a given range of factors\n"
+         "          4. Slide a given branch along to others for given lengths\n"
+         "            Please choose:");
+
+  /*  Choose option required.*/
   a=0;
   scanf("%d",&a);
   while(a<1 || a>4){
@@ -537,7 +533,6 @@ if (is_interactive == 1) {
 } else {
   a=1;
 }
-
 
 /*  Go to the relevant procedure, depending on option*/
 switch(a){
