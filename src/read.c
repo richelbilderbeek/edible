@@ -11,7 +11,7 @@ void readtree(const char * const file, struct treenode *snodes)
 {
   FILE *input_file;
   char c;
-  char *string;
+  //char *string;
   extern int individual;
   extern int interesting_branches[];
   extern int mode;
@@ -30,7 +30,7 @@ void readtree(const char * const file, struct treenode *snodes)
 
   /*  Call the (code) root node-0 and then recurse through the
    * file constructing the tree in memory*/
-  string=strcpy(snodes->name,"Node-0");
+  strcpy(snodes->name,"Node-0");
   makenode(input_file,snodes,0);
 
   /*  If we are asked for information about an individual node,
@@ -81,7 +81,7 @@ void readtree(const char * const file, struct treenode *snodes)
 void makenode(FILE *fp,struct treenode *node_p,int flag){
 char l[16],m[16];
 char c;
-char *string;
+//char *string;
 int a, n;
 struct treenode *cnode;
 extern int nodecount;
@@ -115,10 +115,10 @@ while(c!=')'){   /*  Until this branch ends {file format has ')'}*/
   CHILD(node)=cnode;
 
   if(c=='0'){    /*  Think of suitable name for internal node*/
-    string=strcpy(m,"Node-");
-    string=itotext(nodecount,l);
-    string=strcat(m,l);
-    string=strcpy(CHILD(node)->name,m);
+    strcpy(m,"Node-");
+    itotext(nodecount,l);
+    strcat(m,l);
+    strcpy(CHILD(node)->name,m);
     c=getnextc(fp);
   }
   else{          /*  Or read name from the file*/

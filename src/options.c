@@ -337,7 +337,8 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
   int slippe,to,from,to_root,to_false_root;
   int sp_case;
 
-  double f_min,f_max,f,l;
+  double f_min,f_max,f;
+  //double l;
 
   extern int root;
   struct treenode *movingnode,*node_c;
@@ -516,7 +517,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
 	    ,(movingnode->node[from])->name,(movingnode->node[to])->name);
   
   /*  l is the total length of the "branch" we are moving across*/
-  l=movingnode->length[to]+movingnode->length[from];
+  const double l=movingnode->length[to]+movingnode->length[from];
   
   if(steps==1)
     f=f_min;

@@ -137,7 +137,6 @@ int is_interactive = 1;
 char *matrix_file;
 char *prob_file;
 char *variance_file;
-char *string;
 char c;
 int r;
 double tot;
@@ -524,19 +523,19 @@ if(ISMODE(PERCENTILE) && ISMODE(INDIVIDUAL) && individual>1 && NOTMODE(DETINDIV)
   case 0:
   case ROOTED:
   case DETINDIV:outstring=calloc(34,sizeof(char));
-	    string=strcpy(outstring,"Determinant of expectation matrix");
+            strcpy(outstring,"Determinant of expectation matrix");
 	    break;
   case INDIVIDUAL:   outstring=calloc(25,sizeof(char));
-	    string=strcpy(outstring,"Information about branch");
+            strcpy(outstring,"Information about branch");
 	    break;
   case ROOTED+INDIVIDUAL:  outstring=calloc(28,sizeof(char));
-	    string=strcpy(outstring,"Information about parameter");
+            strcpy(outstring,"Information about parameter");
 	    break;
   case DETINDIV+INDIVIDUAL:outstring=calloc(32,sizeof(char));
-	    string=strcpy(outstring,"Determinate of several branches");
+            strcpy(outstring,"Determinate of several branches");
 	    break;
   case DETINDIV+INDIVIDUAL+ROOTED:outstring=calloc(34,sizeof(char));
-	    string=strcpy(outstring,"Determinate of several parameters");
+            strcpy(outstring,"Determinate of several parameters");
 	    break;
   }
 

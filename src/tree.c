@@ -11,7 +11,7 @@
 struct treenode *treecopy(struct treenode *node2_p,int flag){
   struct treenode *node_p;
   int a,n;
-  char *string;
+  //char *string;
   
   /*  Get memory for new node of tree*/
   node_p=malloc(sizeof(struct treenode));
@@ -19,7 +19,7 @@ struct treenode *treecopy(struct treenode *node2_p,int flag){
     nomemory();
 
   /* Copy over name*/
-  string=strcpy(node_p->name,node2_p->name);
+  strcpy(node_p->name,node2_p->name);
   node_p->bnum = node2_p->bnum;
 
   /* Cycle through all the branches leading to children,
