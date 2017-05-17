@@ -61,6 +61,11 @@ struct crecord{
   int (*leaf_nucleotide)[];
 };
 
+#include "stdio.h"
+
+/* call edible with command line arguments */
+int edible(int argc, char *argv[]);
+
 /* Functions from read.c*/
 void readtree(const char * const file, struct treenode *snodes);
 void makenode(FILE *fp,struct treenode *node_p,int flag);

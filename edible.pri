@@ -1,5 +1,4 @@
-INCLUDEPATH += ..
-INCLUDEPATH += . $$PWD/src
+INCLUDEPATH += $$PWD $$PWD/src
 
 HEADERS += \
     $$PWD/src/edible.h \
@@ -8,6 +7,7 @@ HEADERS += \
     $$PWD/src/variables.h
 
 SOURCES += \
+    $$PWD/src/edible.c \
     $$PWD/src/gtr.c \
     $$PWD/src/llh.c \
     $$PWD/src/matrix.c \

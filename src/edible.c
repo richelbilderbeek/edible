@@ -105,7 +105,7 @@ void show_use()
          "  cache_size is the amount of sequences to store results for when sampling\n\n");
 }
 
-int main(int argc, char *argv[])
+int edible(int argc, char *argv[])
 {
 struct treenode snode;
 unsigned int e;
