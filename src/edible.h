@@ -124,7 +124,7 @@ double sample_percentile(struct treenode *node_p,struct treenode *tree2, unsigne
 double randomresult(struct treenode *node_p,struct treenode *tree,double (*(*partial)[])[],unsigned int e,int sequence, int factor_flag, double factor);
 double randomd(void);
 long randoms(void);
-void reorder(double (*percent)[],double information,int percent_point);
+void reorder(double (*percent)[],double information);
 int evolve_nucleotide(double length, int start_nucleotide);
 double (*(*check_cache(void))[])[];
 void update_cache(double (*(*matrix)[])[]);

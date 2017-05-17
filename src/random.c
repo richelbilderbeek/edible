@@ -59,7 +59,7 @@ double sample_percentile(struct treenode *node_p, struct treenode *tree2,unsigne
    * to calculate*/ 
   for(a=0;a<sample_size;a++){
     information=randomresult(node_p,tree2,partial,e,sequence_length,factor_flag,factor);
-    reorder(percent,information,percent_point);
+    reorder(percent,information);
   }
 
 /*  Calculate the weighted median of the data set -
@@ -175,7 +175,7 @@ long randoms(void){
 
 /*  Routine to place element in its correct place in an array
  * knocking off elements off the end if necessary*/
-void reorder(double (*percent)[],double information,int percent_point){
+void reorder(double (*percent)[],double information){
   extern int sample_size;
   int a,b;
   double d,e;
