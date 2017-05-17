@@ -36,7 +36,7 @@ void standard(
     b=individual;
   
   for(a=0;a<b;a++)
-    fprintf(file_p,"%s = %1.11E\n",outstring,(*det)[a]);
+    fprintf(file_p,"%s = %1.99E\n",outstring,(*det)[a]);
   if(ISMODE(HKY) && NOTMODE(NOKAPPA) && NOTMODE(PERCENTILE))
     fprintf(file_p,"Information about Kappa = %1.11E\n",(*det)[b]);
 
@@ -155,18 +155,23 @@ void growtree(struct treenode *node_p,FILE *file_p,unsigned int e){
     if(ISMODE(INDIVIDUAL))
       b=individual;
     
-    if(ISMODE(INDIVIDUAL)){
-      if(ISMODE(DETINDIV)){
-	fprintf(file_p,"\t\t\t%E\tD(",(*det)[0]);
+    if(ISMODE(INDIVIDUAL)) {
+      if(ISMODE(DETINDIV)) {
+        fprintf(file_p,"\t\t\t%E\tD(",(*det)[0]);
 	for(a=0;a<b-1;a++)
+	{
 	  fprintf(file_p,"%d,",interesting_branches[a]);
+	}
 	fprintf(file_p,"%d)\n",interesting_branches[a]);
-      }else
+      } else {
 	for(a=0;a<b;a++)
+	{
 	  fprintf(file_p,"\t\t\t%E\t%d\n",(*det)[a],interesting_branches[a]);
-    }else
-      fprintf(file_p,"\t\t\t%E\tD\n",(*det)[0]);
-    
+	}
+      }
+    } else {
+      fprintf(file_p,"\t\t\t%1.99E\tD\n",(*det)[0]);
+    }
     if(ISMODE(HKY) && NOTMODE(NOKAPPA) && NOTMODE(PERCENTILE))
       fprintf(file_p,"\t\t\t%E\tKappa\n",(*det)[b]);
     free(det);
@@ -319,9 +324,9 @@ void growbranch(struct treenode *node_p,FILE *file_p,unsigned int e){
       }else
 	for(a=0;a<b;a++)
 	  fprintf(file_p,"\t\t\t%E\t%d\n",(*det)[a],interesting_branches[a]);
-    }else
+    }else{
       fprintf(file_p,"\t\t\t%E\tD\n",(*det)[0]);
-    
+    }
     if(ISMODE(HKY) && NOTMODE(NOKAPPA) && NOTMODE(PERCENTILE))
       fprintf(file_p,"\t\t\t%E\tKappa\n",(*det)[b]);
     free(det);
@@ -687,16 +692,16 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
     
     if(ISMODE(INDIVIDUAL)){
       if(ISMODE(DETINDIV)){
-	fprintf(file_p,"\t\t\t%E\tD(",(*det)[0]);
+        fprintf(file_p,"\t\t\t%E\tD(",(*det)[0]);
 	for(a=0;a<b-1;a++)
 	  fprintf(file_p,"%d,",interesting_branches[a]);
 	fprintf(file_p,"%d)\n",interesting_branches[a]);
       }else
 	for(a=0;a<b;a++)
 	  fprintf(file_p,"\t\t\t%E\t%d\n",(*det)[a],interesting_branches[a]);
-    }else
+    } else {
       fprintf(file_p,"\t\t\t%E\tD\n",(*det)[0]);
-    
+    }
     if(ISMODE(HKY) && NOTMODE(NOKAPPA) && NOTMODE(PERCENTILE))
       fprintf(file_p,"\t\t\t%E\tKappa\n",(*det)[b]);
     free(det);
