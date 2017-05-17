@@ -118,7 +118,6 @@ extern int cache_size;
 extern struct crecord (*cache)[];
 extern int leaves;
 extern double percentile;
-extern char *out_file;
 extern FILE *matrix_file_p;
 extern FILE *prob_file_p;
 extern FILE *variance_file_p;
@@ -141,7 +140,6 @@ char *prob_file;
 char *variance_file;
 char *string;
 char c;
-FILE *file_p;
 int r;
 double tot;
 
@@ -353,9 +351,10 @@ if (ISMODE(BOOTSTRAP) || ISMODE(PERCENTILE) || (ISMODE(HKY) && NOTMODE(NOKAPPA))
 
 if(ISMODE(PERCENTILE) && ISMODE(BOOTSTRAP))
   printf("Don't want to sample twice - doing percentile calculations\n");
-  
-out_file=argv[a+1];
-assert(a + 1 == argc - 1);
+
+assert(argc >= 1);
+const char * const out_file = argv[argc - 1];
+assert(a + 1 == argc - 1); // a + 1 is original behavior
 readtree(argv[a],&snode);
 
 /*  If we want to cache results then get memory for the cache*/
@@ -415,7 +414,7 @@ if(ISMODE(PERCENTILE) && ISMODE(INDIVIDUAL) && individual>1 && NOTMODE(DETINDIV)
   }
 
   /*  Open the output file*/
-  file_p=fopen(out_file,"w");
+  FILE * const file_p=fopen(out_file,"w");
 
   /*  Depending on options, get any additional memory needed
    * and write correct comments to files*/
