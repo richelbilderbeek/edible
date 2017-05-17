@@ -38,7 +38,5 @@ int main()
       return error;
     }
   }
-
   std::cout << std::setprecision(99) << read_determinant(out_filename) << '\n';
-
 }

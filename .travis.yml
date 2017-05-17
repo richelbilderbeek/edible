@@ -19,3 +19,6 @@ script:
   - qmake
   - make
   - ./edible -o test/primate.tree out.txt
+  - cat out.txt
+  - ./edible -o test/20170517_alignment_information_3.tree out.txt
+  - cat out.txt
