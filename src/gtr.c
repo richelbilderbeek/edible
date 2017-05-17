@@ -3,8 +3,8 @@
 #include <assert.h>
 #include <math.h>
 #include "edible.h"
-#include "Meschach/matrix.h"
-#include "Meschach/matrix2.h"
+#include <meschach/matrix.h>
+#include <meschach/matrix2.h>
 
 
 static double U[16],V[16];

@@ -6,14 +6,8 @@ install:
   # Qt5
   - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
-  # Build Meschach
-  - cd ..
-  - git clone https://github.com/richelbilderbeek/Meschach.git
-  #- git clone https://github.com/yageek/Meschach.git
-  - cd Meschach
-  - cmake . -DCOMPLEX_OPTION=YES -DSPARSE_OPTION=YES
-  - cd ..
-  - cd edible
+  # Meschach
+  - sudo apt-get install libmeschach-dev
 
 script: 
   - qmake
