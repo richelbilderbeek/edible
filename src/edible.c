@@ -14,6 +14,26 @@
 #include <time.h>
 #include <float.h>
 
+/* Show a file on screen */
+void show_file(const char * const filename)
+{
+  // show output file
+  FILE * const file_p = fopen(filename,"r"); // read mode
+
+  if(file_p == NULL )
+  {
+    perror("Error while opening the file.\n");
+    exit(EXIT_FAILURE);
+  }
+
+  char ch = '\0';
+  while( ( ch = fgetc(file_p) ) != EOF ) {
+    printf("%c",ch);
+  }
+
+  fclose(file_p);
+}
+
 int nodecount=0;
 int leaves=0;
 int branches=0;
@@ -558,23 +578,7 @@ if(ISMODE(VARIANCE))
   fclose(variance_file_p);
 
 if (is_interactive == 0) {
-  // show output file
-  FILE * const file_p = fopen(out_file,"r"); // read mode
-
-  if(file_p == NULL )
-  {
-    perror("Error while opening the file.\n");
-    exit(EXIT_FAILURE);
-  }
-
-  printf("The contents of %s file are :\n", out_file);
-  char ch = '\0';
-
-  while( ( ch = fgetc(file_p) ) != EOF ) {
-    printf("%c",ch);
-  }
-
-  fclose(file_p);
+  show_file(out_file);
 }
 
 return 0;
