@@ -62,7 +62,7 @@ struct crecord{
 };
 
 /* Functions from read.c*/
-void readtree(char *file, struct treenode *snodes);
+void readtree(const char * const file, struct treenode *snodes);
 void makenode(FILE *fp,struct treenode *node_p,int flag);
 void printnode(struct treenode *node_p,int flag,FILE *fp);
 void dump(double (*(*matrix)[])[],int maxi,char *s);
@@ -105,7 +105,7 @@ void planttree(double (*(*original_matrix)[])[],double (*(*new_matrix)[])[]);
 void rooted_derivative(double (*original_vector)[],double (*new_vector)[]);
 
 /* Functions from options.c*/
-void standard(struct treenode *node_p,FILE *file_p,unsigned int e);
+void standard(struct treenode * const node_p,FILE * const file_p,const unsigned int e);
 void growtree(struct treenode *node_p,FILE *file_p,unsigned int e);
 void growbranch(struct treenode *node_p,FILE *file_p,unsigned int e);
 void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e);

@@ -7,7 +7,7 @@
 
 /*  Opens file for input and calls makenode(*) to start
  * creating the tree*/
-void readtree(char *file, struct treenode *snodes)
+void readtree(const char * const file, struct treenode *snodes)
 {
   FILE *input_file;
   char c;

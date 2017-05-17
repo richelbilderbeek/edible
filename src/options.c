@@ -10,7 +10,10 @@
  * expected information and the diagonal values of the variance
  * Dump these to disk and calculate the determinant of the
  * expectation matrix.*/
-void standard(struct treenode *node_p,FILE *file_p,unsigned int e){
+void standard(
+  struct treenode * const node_p,
+  FILE * const file_p,
+  const unsigned int e){
 #include "variables.h"
   int a,b;
 

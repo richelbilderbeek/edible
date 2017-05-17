@@ -40,7 +40,6 @@ int branches=0;
 int is_kappa=0;
 struct treenode *leaf[LEAFMAX];
 struct treenode *branch[BRANCHMAX];
-char *out_file;
 FILE *matrix_file_p;
 FILE *prob_file_p;
 FILE *variance_file_p;
@@ -352,10 +351,16 @@ if (ISMODE(BOOTSTRAP) || ISMODE(PERCENTILE) || (ISMODE(HKY) && NOTMODE(NOKAPPA))
 if(ISMODE(PERCENTILE) && ISMODE(BOOTSTRAP))
   printf("Don't want to sample twice - doing percentile calculations\n");
 
+//Output filename
 assert(argc >= 1);
-const char * const out_file = argv[argc - 1];
+const char * const output_filename = argv[argc - 1];
 assert(a + 1 == argc - 1); // a + 1 is original behavior
-readtree(argv[a],&snode);
+
+//Read the tree
+assert(argc >= 2);
+const char * const tree_filename = argv[argc - 2];
+readtree(tree_filename, &snode);
+assert(a == argc - 2); // a is original behavior
 
 /*  If we want to cache results then get memory for the cache*/
 if(ISMODE(CACHE)){
@@ -414,7 +419,7 @@ if(ISMODE(PERCENTILE) && ISMODE(INDIVIDUAL) && individual>1 && NOTMODE(DETINDIV)
   }
 
   /*  Open the output file*/
-  FILE * const file_p=fopen(out_file,"w");
+  FILE * const file_p = fopen(output_filename,"w");
 
   /*  Depending on options, get any additional memory needed
    * and write correct comments to files*/
@@ -577,7 +582,7 @@ if(ISMODE(VARIANCE))
   fclose(variance_file_p);
 
 if (is_interactive == 0) {
-  show_file(out_file);
+  show_file(output_filename);
 }
 
 return 0;
