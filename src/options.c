@@ -522,7 +522,7 @@ void greasebranch(struct treenode *node_p,FILE *file_p,unsigned int e){
 	    ,(movingnode->node[from])->name,(movingnode->node[to])->name);
   
   /*  l is the total length of the "branch" we are moving across*/
-  const double l=movingnode->length[to]+movingnode->length[from];
+  //const double l=movingnode->length[to]+movingnode->length[from];
   
   if(steps==1)
     f=f_min;
