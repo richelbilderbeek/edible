@@ -6,7 +6,12 @@ master|[![Build Status](https://travis-ci.org/richelbilderbeek/edible.svg?branch
 develop|[![Build Status](https://travis-ci.org/richelbilderbeek/edible.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/)
 original|[![Build Status](https://travis-ci.org/richelbilderbeek/edible.svg?branch=original)](https://travis-ci.org/richelbilderbeek/)
 
-Fork of EDIBLE from [https://www.ebi.ac.uk/research/goldman/software/EDIBLE](https://www.ebi.ac.uk/research/goldman/software/EDIBLE).
+Fork of EDIBLE from
+
+  * [https://www.ebi.ac.uk/research/goldman/software/EDIBLE](https://www.ebi.ac.uk/research/goldman/software/EDIBLE).
+  * [https://github.com/timmassingham/EDIBLE](https://github.com/timmassingham/EDIBLE)
+
+(these should be the same).
 
 The original code is [in the `original` branch of this repository](https://github.com/richelbilderbeek/edible/tree/original).
 
